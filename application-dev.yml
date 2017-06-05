@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://git-codecommit.us-west-2.amazonaws.com/v1/repos/pan-tuyo-config
+          password: Njnn0rRAqPVLGYc6XLZz5c7jtee9XWyR5vo11UK4g4M=
+          username: pan-config-server-at-835539363752
+          clone-on-start: true
+          timeout: 30
+          default-label: develop
