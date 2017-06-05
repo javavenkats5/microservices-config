@@ -1,17 +1,27 @@
 spring:
-  profiles:
-    active: dev
-
----
-spring:
   profiles: dev
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://git-codecommit.us-west-2.amazonaws.com/v1/repos/pan-tuyo-config
-          password: Njnn0rRAqPVLGYc6XLZz5c7jtee9XWyR5vo11UK4g4M=
-          username: pan-config-server-at-835539363752
-          clone-on-start: true
-          timeout: 30
-          default-label: develop
+  datasource:
+    url: jdbc:mysql://hostname/accounts
+    username: user
+    password: pwd123
+    driver-class: com.mysql.jdbc.Driver
+    factory: org.apache.tomcat.jdbc.pool.DataSourceFactory
+    initialSize: 10
+    maxActive: 20
+    minIdle: 5
+    maxIdle: 10
+    maxWait: 3000
+    timeBetweenEvictionRunsMillis: 5000
+    minEvictableIdleTimeMillis: 30000
+    testOnBorrow: true
+    validationQuery: SELECT 1
+    validationInterval: 30000
+    removeAbandoned: true
+    removeAbandonedTimeout: 60
+    logAbandoned: true
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+
+server:
+  port: 9004
